@@ -53,8 +53,3 @@ class Expenses:
         self.name = name
         self.bankAccount = BankAccount
 
-
-      
-
-
-        
