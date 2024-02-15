@@ -7,6 +7,7 @@ class BankAccount:
     def func(a):
         print(a)
 
+
     def addIncome(self):
         newIncomeAmount = input("Podaj kwote przychodu: ")
         name = input("Wybierz nazwe przelewu")
@@ -53,8 +54,3 @@ class Expenses:
         self.name = name
         self.bankAccount = BankAccount
 
-
-      
-
-
-        
