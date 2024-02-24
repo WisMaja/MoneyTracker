@@ -8,33 +8,31 @@ class BankAccount:
         print(a)
 
     def addIncome(self):
-        newIncomeAmount = input("Podaj kwote przychodu: ")
-        name = input("Wybierz nazwe przelewu")
-        account = self
-
-        newIncome= Incomes(newIncomeAmount,name,account)
-
-        amount+=newIncome.income
+        newIncomeAmount = float(input("Podaj kwotę przychodu: "))  # Konwertuj do float
+        name = input("Wybierz nazwę przelewu: ")
+        newIncome = Incomes(newIncomeAmount, name, self)
+        self.amount += newIncome.income  # Dodaj nowy przychód do salda konta
 
 
     def addExpense(self):
-        newExpenseAmount = input("Podaj kwote wydayku: ")
-        name = input("Wybierz nazwe przelewu")
-        account = self
-        if self.amount - newExpens.expense < 0:
-            raise ValueError("Nie masz wystarczajaco środków na tym koncie")
+        newExpenseAmount = float(input("Podaj kwotę wydatku: "))  # Konwertuj do float
+        name = input("Wybierz nazwę przelewu: ")
+        if self.amount - newExpenseAmount < 0:  # Poprawione newExpense na newExpenseAmount
+            raise ValueError("Nie masz wystarczająco środków na tym koncie")
+        newExpense = Expenses(newExpenseAmount, name, self)
+        self.amount -= newExpense.expense  # Odejmij nowy wydatek od salda konta
 
-        newExpens= Expenses(newExpenseAmount,name,account)
+    def showBalance(self):
+        print("O to twój obecny stan konta: ", self.amount)
 
-        amount-=newExpens.expense
- 
+    
 
 
 class Incomes:
     def __init__(self, income, name, bankAccount):
-        if income<=0:
-            raise ValueError("Kwota musi być wieksza od zera")
-        if len(name)==0:
+        if income <= 0:
+            raise ValueError("Kwota musi być większa od zera")
+        if len(name) == 0:
             raise ValueError("Brak nazwy")
         
         self.income = income
